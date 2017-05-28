@@ -1,4 +1,4 @@
-function generateChart(tableId, chartDivId) {
+function generateChart(tableId, chartDivId, chartType) {
     var table = document.getElementById(tableId);
     var c3Columns = [];
     var categories = [];
@@ -15,10 +15,10 @@ function generateChart(tableId, chartDivId) {
         }
     }
     var chart = c3.generate({
-        bindTo: '#' + chartDivId,
+        bindto: '#' + chartDivId,
         data: {
             columns: c3Columns,
-            type: 'bar'
+            type: chartType
         },
         axis: {
             x: {
