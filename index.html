@@ -7,6 +7,8 @@
         <!-- Load d3.js and c3.js -->
         <script src="js/d3.min.js" charset="utf-8"></script>
         <script src="js/c3.min.js"></script>
+        <!-- Load tableToC3.js -->
+        <script src="js/tableToC3.js"></script>
     </head>
         <table id="tableToC3">
             <thead>
@@ -24,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>February</td>
-                    <td>100</td>
+                    <td>136</td>
                     <td>186</td>
                 </tr>
                 <tr>
@@ -34,7 +36,7 @@
                 </tr>
                 <tr>
                     <td>April</td>
-                    <td>100</td>
+                    <td>43</td>
                     <td>186</td>
                 </tr>
                 <tr>
@@ -45,12 +47,12 @@
                 <tr>
                     <td>June</td>
                     <td>100</td>
-                    <td>186</td>
+                    <td>54</td>
                 </tr>
                 <tr>
                     <td>July</td>
-                    <td>100</td>
-                    <td>186</td>
+                    <td>98</td>
+                    <td>32</td>
                 </tr>
                 <tr>
                     <td>August</td>
@@ -59,8 +61,8 @@
                 </tr>
                 <tr>
                     <td>September</td>
-                    <td>100</td>
-                    <td>186</td>
+                    <td>34</td>
+                    <td>245</td>
                 </tr>
                 <tr>
                     <td>October</td>
@@ -75,40 +77,14 @@
                 <tr>
                     <td>December</td>
                     <td>100</td>
-                    <td>186</td>
+                    <td>90</td>
                 </tr>
             </tbody>
         </table>
         <div id="chart">
         </div>
         <script>
-            var table = document.getElementById('tableToC3');
-            var c3Columns = [];
-            var categories = [];
-            for(let rowIndex = 0; rowIndex < table.rows.length; rowIndex++) {
-                for(let colIndex = 0; colIndex < table.rows[rowIndex].cells.length; colIndex++) {
-                    if(rowIndex > 0 && colIndex == 0) {
-                        categories.push(table.rows[rowIndex].cells[colIndex].innerHTML);
-                    } else if (colIndex > 0) {
-                        if(c3Columns.length < colIndex) {
-                            c3Columns.push([]);
-                        }
-                        c3Columns[colIndex - 1].push(table.rows[rowIndex].cells[colIndex].innerHTML);
-                    }
-                }
-            }
-            var chart = c3.generate({
-                data: {
-                    columns: c3Columns,
-                    type: 'bar'
-                },
-                axis: {
-                    x: {
-                        type: 'category',
-                        categories: categories
-                    }
-                }
-            });
+            generateChart('tableToC3', 'chart');
         </script>
     </body>
 </html>
