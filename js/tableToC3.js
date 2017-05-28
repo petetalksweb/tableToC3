@@ -1,5 +1,5 @@
 function generateChart(tableId, chartDivId) {
-    var table = document.getElementById('tableToC3');
+    var table = document.getElementById(tableId);
     var c3Columns = [];
     var categories = [];
     for(let rowIndex = 0; rowIndex < table.rows.length; rowIndex++) {
