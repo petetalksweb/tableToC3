@@ -8,7 +8,7 @@
         <script src="js/d3.min.js" charset="utf-8"></script>
         <script src="js/c3.min.js"></script>
     </head>
-        <table>
+        <table id="tableToC3">
             <thead>
                 <tr>
                     <th>Month</th>
@@ -82,12 +82,20 @@
         <div id="chart">
         </div>
         <script>
+            var table = document.getElementById('tableToC3');
+            var c3Columns = [];
+            for(let rowIndex = 0; rowIndex < table.rows.length; rowIndex++) {
+                for(let colIndex = 1; colIndex < table.rows[rowIndex].cells.length; colIndex++) {
+                    if(c3Columns.length < colIndex) {
+                        c3Columns.push([]);
+                    }
+                    c3Columns[colIndex - 1].push(table.rows[rowIndex].cells[colIndex].innerHTML);
+                }
+            }
+            console.log(c3Columns);
             var chart = c3.generate({
                 data: {
-                    columns: [
-                        ['data1', 30, 200, 100, 400, 150, 250],
-                        ['data2', 130, 100, 140, 200, 150, 50]
-                    ],
+                    columns: c3Columns,
                     type: 'bar'
                 },
                 bar: {
