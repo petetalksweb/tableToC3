@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <!-- Load c3.css -->
+        <link href="css/c3.min.css" rel="stylesheet" type="text/css">
+        <!-- Load jQuery 3.2.1 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Load d3.js and c3.js -->
+        <script src="js/d3.min.js" charset="utf-8"></script>
+        <script src="js/c3.min.js"></script>
+    </head>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Savings</th>
+                    <th>Spending</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>January</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>February</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>March</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>April</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>May</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>June</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>August</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>September</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>October</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>November</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+                <tr>
+                    <td>December</td>
+                    <td>100</td>
+                    <td>186</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="chart">
+        </div>
+        <script>
+            var chart = c3.generate({
+                data: {
+                    columns: [
+                        ['data1', 30, 200, 100, 400, 150, 250],
+                        ['data2', 130, 100, 140, 200, 150, 50]
+                    ],
+                    type: 'bar'
+                },
+                bar: {
+                    width: {
+                        ratio: 0.5 // this makes bar width 50% of length between ticks
+                    }
+                    // or
+                    //width: 100 // this makes bar width 100px
+                }
+            });
+        </script>
+    </body>
+</html>
